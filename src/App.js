@@ -1,8 +1,17 @@
-import './App.css';
+import {BrowserRouter,Route,Routes} from "react-router-dom";
+import Home from "./pages/Home"
+import List from "./pages/HotelList"
+import Hotel from "./pages/Hotel"
 
 function App() {
   return (
-    <h1>Mohit</h1>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/lists" element={<List/>}/>
+        <Route path="/hotel/:id" element={<Hotel/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

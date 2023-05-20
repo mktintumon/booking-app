@@ -42,7 +42,7 @@ app.use((err, req, res, next) => {
       message: errorMessage,
       stack: err.stack,
     });
-  });
+});
 
 
 app.listen(8800,()=>{

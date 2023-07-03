@@ -16,6 +16,8 @@ import { useState } from "react";
 import {useNavigate} from "react-router-dom"
 import { format } from "date-fns";
 import React from "react";
+import { useContext } from "react";
+import { SearchContext } from "../context/SearchContext";
 
 function Header({types}) {
   const [openDate, setOpenDate] = useState(false);
@@ -44,9 +46,16 @@ function Header({types}) {
     })
   }
 
+
+  const {dispatch} = useContext(SearchContext)
+
   const navigate = useNavigate()
 
   const handleSearch = ()=>{
+    dispatch({
+      type:"NEW_SEARCH",
+      payload:{dest,date,option}
+    })
     navigate("/hotelLists", {state:{dest , date , option}})
   }
 
